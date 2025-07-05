@@ -1,0 +1,30 @@
+{
+  "name": "Text Content Replacer",
+  "description": "A very simple extension for replacing text content",
+  "homepage_url": "https://github.com/FlanaganSe/text-content-replacer",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Text Content Replacer",
+    "default_popup": "src/extension-popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/index.js"]
+    }
+  ],
+  "permissions": ["storage", "activeTab"]
+}

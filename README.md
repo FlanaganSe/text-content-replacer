@@ -1,0 +1,1 @@
+Initializing readme for this very simple chrome extension.
