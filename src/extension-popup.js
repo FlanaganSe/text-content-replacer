@@ -28,6 +28,7 @@ form.addEventListener("submit", async (e) => {
 
 // Handle delete item
 list.addEventListener("click", async (e) => {
+  if (!e.target.classList.contains("delete")) return;
   const items = await getItems();
   items.splice(Number(e.target.dataset.index), 1);
   await setItems(items);
