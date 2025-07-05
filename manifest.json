@@ -1,6 +1,6 @@
 {
   "name": "Text Content Replacer",
-  "description": "A very simple extension for replacing text content",
+  "description": "A simple extension for replacing text content",
   "homepage_url": "https://github.com/FlanaganSe/text-content-replacer",
   "version": "1.0.0",
   "manifest_version": 3,
@@ -26,5 +26,5 @@
       "js": ["src/index.js"]
     }
   ],
-  "permissions": ["storage", "activeTab"]
+  "permissions": ["storage"]
 }
