@@ -1,33 +1,32 @@
 (async () => {
   const { replacements = [] } = await chrome.storage.sync.get("replacements");
-  const validReplacements = replacements.filter((r) => r.find && r.replace);
+  if (!replacements.length) return;
 
-  if (!validReplacements.length) return;
-
+  // Process an HTML DOM node
   const processNode = (node) => {
+    if (
+      node.nodeType === Node.ELEMENT_NODE &&
+      node.closest("input, textarea, [contenteditable], script, style")
+    )
+      return;
+
     if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
       let text = node.textContent;
-      for (const { find, replace } of validReplacements) {
+      for (const { find, replace } of replacements) {
         text = text.replaceAll(find, replace);
       }
       node.textContent = text;
-    } else if (
-      node.nodeType === Node.ELEMENT_NODE &&
-      !node.matches("script, style, textarea, input")
-    ) {
-      for (const child of node.childNodes) {
-        processNode(child);
-      }
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      node.childNodes.forEach(processNode);
     }
   };
 
   processNode(document.body);
 
+  // Watch for new DOM nodes
   new MutationObserver((mutations) => {
-    for (const mutation of mutations) {
-      for (const node of mutation.addedNodes) {
-        processNode(node);
-      }
-    }
+    if (document.activeElement?.matches("input, textarea, [contenteditable]"))
+      return;
+    mutations.forEach((mutation) => mutation.addedNodes.forEach(processNode));
   }).observe(document.body, { childList: true, subtree: true });
 })();
