@@ -2,7 +2,6 @@
   const { replacements = [] } = await chrome.storage.sync.get("replacements");
   if (!replacements.length) return;
 
-  // Process an HTML DOM node
   const processNode = (node) => {
     if (
       node.nodeType === Node.ELEMENT_NODE &&
@@ -13,7 +12,7 @@
     if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
       let text = node.textContent;
       for (const { find, replace } of replacements) {
-        text = text.replaceAll(find, replace);
+        text = text.replaceAll(find, replace); // Consider case-insensitive option
       }
       node.textContent = text;
     } else if (node.nodeType === Node.ELEMENT_NODE) {
@@ -23,10 +22,13 @@
 
   processNode(document.body);
 
-  // Watch for new DOM nodes
+  let debounceTimer;
   new MutationObserver((mutations) => {
     if (document.activeElement?.matches("input, textarea, [contenteditable]"))
       return;
-    mutations.forEach((mutation) => mutation.addedNodes.forEach(processNode));
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      mutations.forEach((mutation) => mutation.addedNodes.forEach(processNode));
+    }, 100);
   }).observe(document.body, { childList: true, subtree: true });
 })();

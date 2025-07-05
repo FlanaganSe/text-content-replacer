@@ -9,7 +9,7 @@ const setItems = (items) => chrome.storage.sync.set({ [KEY]: items });
 const render = async () => {
   const items = await getItems();
   const htmlItems = items.map((item, i) => {
-    return `<div class="item">${item.find} → ${item.replace}<button class="delete" data-index="${i}">Delete</button></div>`;
+    return `<div class="item"><span class="find">${item.find}</span> → <span class=replace>${item.replace}</span><button class="delete" data-index="${i}"></button></div>`;
   });
   list.innerHTML = htmlItems.join("");
 };
