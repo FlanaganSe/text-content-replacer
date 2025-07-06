@@ -34,10 +34,6 @@ My motivation was specifically for annotating identifiers. When you regularly vi
 - Sanitizes replacements to prevent XSS
 - Chrome Storage API for persistence
 
-## Contributing
-
-Issues and PRs welcome. Keep it simple.
-
 ## License
 
 MIT
