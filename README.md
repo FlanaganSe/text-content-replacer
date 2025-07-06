@@ -2,7 +2,7 @@
 
 A Chrome extension that automatically replaces text on web pages. Perfect for adding context to identifiers, fixing common typos, or customizing your browsing experience.
 
-![](assets/images/640_400_text-replacer-ex.png)
+![](assets/images/640_400_text_replace.png)
 
 ## Why?
 
