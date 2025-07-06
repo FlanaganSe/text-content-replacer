@@ -6,12 +6,18 @@
     <script defer src="extension-popup.js"></script>
   </head>
   <body>
-      <h2>Text Replacer</h2>
-      <form id="form">
+    <div class="header">
+      <h2>Text Content Replacer</h2>
+    </div>
+
+    <form id="form">
+      <div class="input-group">
         <input name="find" placeholder="Find text..." required />
-        <input name="replace" placeholder="Replace with..." required />
-        <button class="add-btn">Add</button>
-      </form>
-      <div id="list"></div>
+        <input name="replace" placeholder="Replace with..." />
+      </div>
+      <button class="add-btn">Add Replacement</button>
+    </form>
+
+    <div id="list"></div>
   </body>
 </html>
