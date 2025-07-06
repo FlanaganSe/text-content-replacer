@@ -1,65 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  width: 250px;
-  padding: 16px;
-  font-family: system-ui, -apple-system, sans-serif;
+  width: 300px;
   margin: 0;
+  padding: 20px;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
 }
 
 h2 {
-  margin-top: 0;
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 input,
 button {
   width: 100%;
-  padding: 8px;
-  margin: 4px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  padding: 10px;
+  margin: 6px 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}S
+
+input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .add-btn {
-  background: #4285f4;
+  background: #3b82f6;
   color: white;
   border: none;
   cursor: pointer;
+  font-weight: 500;
 }
 
-button:hover {
-  opacity: 0.8;
+.add-btn:hover {
+  background: #2563eb;
+}
+
+.add-btn:active {
+  transform: scale(0.98);
+}
+
+#list {
+  max-height: 350px;
+  overflow-y: auto;
 }
 
 .item {
   display: flex;
   align-items: center;
-  padding: 8px; /* Increased padding for better spacing */
+  padding: 10px;
   margin: 8px 0;
-  background: #f9f9f9;
-  border: 1px solid #eee; /* Light border for separation */
-  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
   gap: 8px;
   word-break: break-word;
-  font-weight: 400;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.item:hover {
+  transform: translateY(-1px);
 }
 
 .item .find {
-  color: #333131;
-  
+  color: #1e293b;
+  font-weight: 500;
 }
 
 .item .replace {
-  color: #03294f;
-  margin-left: 4px;
+  color: #475569;
+  /* margin-left: 4px; */ /* REMOVE: gap handles spacing */
 }
 
 .delete {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>');
-  width: 16px;
-  height: 16px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>');
+  width: 18px;
+  height: 18px;
   padding: 2px;
   margin-left: auto;
   flex-shrink: 0;
   border: none;
   cursor: pointer;
+  background-color: transparent;
+  transition: opacity 0.2s ease;
+}
+
+.delete:hover {
+  opacity: 0.7;
+}
+
+.item .find {
+  color: #1e293b;
+  font-weight: 500;
 }
