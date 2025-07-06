@@ -1,31 +1,42 @@
 # Text Content Replacer
 
-![](assets/images/example-extension.png)
+A Chrome extension that automatically replaces text on web pages. Perfect for adding context to identifiers, fixing common typos, or customizing your browsing experience.
 
-## Overview
+## Why?
 
-Text Content Replacer is a lightweight Chrome extension that lets you swap out specific words or phrases on web pages with your custom replacements. It's simple, fast, and works in real-time as you browse.
+My motivation was specifically for annotating identifiers. When you regularly view dozens of identifiers it can be valuable to add valuable information, such as replacing `1234-5678-9012` with `1234-5678-9012 #aws-dev`.
 
-This extension was specifically created to add additional details to various identifiers. A website may list an identifier such as `1234-5678-9012` and it would be valuable to add specifying information to these identifiers -- e.g. `1234-5678-9012 #aws-dev`
+## Features
 
-## Usage
-
-- Click the extension icon in the Chrome toolbar to open the popup.
-- Enter text to find and its replacement, then click "Add."
-- Browse the web—text will be replaced automatically!
+- **Real-time replacement** - Changes text as pages load and update
+- **Smart targeting** - Skips input fields and editable content
+- **Lightweight** - No dependencies, minimal performance impact
+- **Persistent storage** - Replacements sync across browser sessions
 
 ## Installation
 
-1. Clone or download this repository.
-2. Open Chrome and go to chrome://extensions/.
-3. Enable "Developer mode" (top right).
-4. Click "Load unpacked" and select the extension folder.
-5. The extension icon will appear in your toolbar.
+1. Download or clone this repo
+2. Open `chrome://extensions/` in Chrome
+3. Enable "Developer mode" (top right)
+4. Click "Load unpacked" and select the extension folder
+
+## Usage
+
+1. Click the extension icon
+2. Add your find/replace pairs
+3. That's it - replacements happen automatically
+
+## Technical Details
+
+- Uses MutationObserver for dynamic content
+- Debounced DOM processing with requestAnimationFrame
+- Sanitizes replacements to prevent XSS
+- Chrome Storage API for persistence
 
 ## Contributing
 
-Contributions for issues or small features are welcome.
+Issues and PRs welcome. Keep it simple.
 
-### License
+## License
 
-MIT License. Use, modify, and share as you like.
+MIT

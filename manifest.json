@@ -1,11 +1,12 @@
 {
   "name": "Text Content Replacer",
-  "description": "A simple extension for replacing text content",
+  "description": "Automatically replace text on web pages. Add context to IDs, fix typos, or customize your browsing.",
   "homepage_url": "https://github.com/FlanaganSe/text-content-replacer",
   "version": "1.0.0",
   "manifest_version": 3,
+  "minimum_chrome_version": "88",
   "action": {
-    "default_title": "Text Content Replacer",
+    "default_title": "Text Content Replacer - Click to manage replacements",
     "default_popup": "src/extension-popup.html",
     "default_icon": {
       "16": "assets/icons/icon16.png",
@@ -23,8 +24,11 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["src/extension-replacer.js"]
+      "js": ["src/extension-replacer.js"],
+      "run_at": "document_idle",
+      "all_frames": true
     }
   ],
-  "permissions": ["storage"]
+  "permissions": ["storage"],
+  "host_permissions": ["<all_urls>"]
 }
