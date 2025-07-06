@@ -1,5 +1,5 @@
 (async () => {
-  const { replacements = [] } = await chrome.storage.sync.get("replacements");
+  const { replacements = [] } = await chrome.storage.local.get("replacements");
   if (!replacements.length) return;
 
   const processNode = (node) => {

@@ -2,8 +2,8 @@ const KEY = "replacements";
 const form = document.getElementById("form");
 const list = document.getElementById("list");
 
-const getItems = () => chrome.storage.sync.get(KEY).then((d) => d[KEY] || []);
-const setItems = (items) => chrome.storage.sync.set({ [KEY]: items });
+const getItems = () => chrome.storage.local.get(KEY).then((d) => d[KEY] || []);
+const setItems = (items) => chrome.storage.local.set({ [KEY]: items });
 
 // Render list
 const render = async () => {
