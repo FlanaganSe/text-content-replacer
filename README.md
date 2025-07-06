@@ -2,6 +2,8 @@
 
 A Chrome extension that automatically replaces text on web pages. Perfect for adding context to identifiers, fixing common typos, or customizing your browsing experience.
 
+![](assets/images/640_400_text-replacer-ex.png)
+
 ## Why?
 
 My motivation was specifically for annotating identifiers. When you regularly view dozens of identifiers it can be valuable to add valuable information, such as replacing `1234-5678-9012` with `1234-5678-9012 #aws-dev`.
@@ -22,9 +24,8 @@ My motivation was specifically for annotating identifiers. When you regularly vi
 
 ## Usage
 
-1. Click the extension icon
+1. Click the extension icon to add/remove replacement records.
 2. Add your find/replace pairs
-3. That's it - replacements happen automatically
 
 ## Technical Details
 
