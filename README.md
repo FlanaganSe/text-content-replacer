@@ -27,13 +27,10 @@ My motivation was specifically for annotating identifiers. When you regularly vi
 1. Click the extension icon to add/remove replacement records.
 2. Add your find/replace pairs
 
-## Technical Details
-
-- Uses MutationObserver for dynamic content
-- Debounced DOM processing with requestAnimationFrame
-- Sanitizes replacements to prevent XSS
-- Chrome Storage API for persistence
-
 ## License
 
 MIT
+
+## Support
+
+- Icons from: https://feathericons.com/ — [github repo](https://github.com/feathericons/feather)
