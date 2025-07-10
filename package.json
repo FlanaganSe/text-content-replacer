@@ -1,15 +1,15 @@
 {
   "name": "text-content-replace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automatically replace text on web pages. Add context to IDs, fix typos, or customize your browsing.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "biome lint"
   },
   "author": "Sean Flanagan",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "^2.0.6",
-    "@types/chrome": "^0.0.329"
+    "@biomejs/biome": "^2.1.1",
+    "@types/chrome": "^0.0.332"
   }
 }
