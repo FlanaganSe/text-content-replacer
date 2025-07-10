@@ -1,6 +1,7 @@
 (async () => {
 	// Load replacements from local storage
 	const { replacements } = await chrome.storage.local.get("replacements");
+	if (!Array.isArray(replacements)) return;
 	const filteredReplacements = replacements.filter((it) => !it.hide);
 	if (!filteredReplacements?.length) return;
 

@@ -17,7 +17,7 @@ const render = async () => {
 	list.replaceChildren(
 		...items.map((item, i) => {
 			const div = document.createElement("div");
-			div.className = `item ${item.hide && "hidden"}`;
+			div.className = item.hide ? "item hidden" : "item";
 
 			// Find row
 			const findRow = document.createElement("div");
