@@ -6,13 +6,14 @@ A Chrome extension that automatically replaces text on web pages. Perfect for ad
 
 ## Why?
 
-My motivation was specifically for annotating identifiers. When you regularly view dozens of identifiers it can be valuable to add valuable information, such as replacing `1234-5678-9012` with `1234-5678-9012 #aws-dev`.
+My motivation was specifically for annotating identifiers. When you regularly view dozens of static uuids, it can be valuable to add descriptive identifying information. 
+e.g. replacing `1234-5678-9012` with `1234-5678-9012 #aws-dev`.
 
 ## Features
 
 - **Real-time replacement** - Changes text as pages load and update
 - **Smart targeting** - Skips input fields and editable content
-- **Lightweight** - No dependencies, minimal performance impact
+- **Lightweight** - Few dependencies; no compilation; efficient performance
 - **Persistent storage** - Replacements sync across browser sessions
 
 ## Installation
@@ -22,15 +23,10 @@ My motivation was specifically for annotating identifiers. When you regularly vi
 3. Enable "Developer mode" (top right)
 4. Click "Load unpacked" and select the extension folder
 
-## Usage
-
-1. Click the extension icon to add/remove replacement records.
-2. Add your find/replace pairs
-
 ## License
 
 MIT
 
-## Support
+## References
 
 - Icons from: https://feathericons.com/ — [github repo](https://github.com/feathericons/feather)
