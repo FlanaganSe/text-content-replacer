@@ -1,7 +1,8 @@
 (async () => {
 	// Load replacements from local storage
 	const { replacements } = await chrome.storage.local.get("replacements");
-	if (!Array.isArray(replacements) || !replacements.length) return;
+	const filteredReplacements = replacements.filter((it) => !it.hide);
+	if (!filteredReplacements?.length) return;
 
 	// Skip input fields, scripts, etc.
 	const SKIP = "input, textarea, [contenteditable], script, style";
@@ -10,7 +11,7 @@
 	const processTextNode = (node) => {
 		if (!node.textContent?.trim()) return;
 		let text = node.textContent;
-		for (const { find, replace } of replacements) {
+		for (const { find, replace } of filteredReplacements) {
 			text = text.replace(
 				new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g"),
 				replace,
