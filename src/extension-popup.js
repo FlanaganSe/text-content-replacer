@@ -3,8 +3,7 @@ const form = document.getElementById("form");
 const list = document.getElementById("list");
 
 const getItems = () => chrome.storage.local.get(KEY).then((d) => d[KEY] || []);
-const setItems = (items) =>
-	chrome.storage.local.set({ [KEY]: items }).catch(console.error);
+const setItems = (items) => chrome.storage.local.set({ [KEY]: items }).catch(console.error);
 
 // Render list
 const render = async () => {
