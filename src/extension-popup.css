@@ -33,6 +33,10 @@ h2 {
   border-bottom: 1px solid #e2e8f0;
 }
 
+.hidden {
+  opacity: 0.5;
+}
+
 .input-group {
   display: flex;
   gap: 8px;
@@ -153,10 +157,10 @@ input::placeholder {
   color: #033c2c;
 }
 
-.delete {
+.delete, .hide {
   position: absolute;
   right: 12px;
-  top: 50%;
+  top: 30%;
   transform: translateY(-50%);
   width: 28px;
   height: 28px;
@@ -172,12 +176,20 @@ input::placeholder {
   color: #64748b;
 }
 
+.hide {
+  top: 70%;
+}
+
 .delete:hover {
   background: #ef4444;
   color: white;
 }
+.hide:hover {
+  background: #0f172a;
+  color: white;
+}
 
-.delete svg {
+.delete svg, .hide svg {
   width: 16px;
   height: 16px;
   pointer-events: none; /* Add this line */
