@@ -126,12 +126,14 @@ h2 {
       border-color: var(--muted-color);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
+    &:last-child {
+      margin-bottom: 0;
+    }
     .item-row {
       display: flex;
       align-items: center;
       gap: 6px;
       font-size: 13px;
-      margin-bottom: 4px;
     }
     .label {
       font-size: 11px;
@@ -152,6 +154,7 @@ h2 {
       background: #fef3c7;
       color: #92400e;
       border: 1px solid #fde68a;
+      margin-bottom: 4px;
     }
     .replace-row .text-content {
       background: #d1fae5;
