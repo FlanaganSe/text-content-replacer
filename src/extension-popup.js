@@ -7,9 +7,9 @@ const setItems = (items) => chrome.storage.local.set({ [KEY]: items }).catch(con
 
 // Create item div element
 const createItem = ({ find, replace }, index) => {
-	const div = document.createElement("div");
-	div.className = "item";
-	div.innerHTML = `
+  const div = document.createElement("div");
+  div.className = "item";
+  div.innerHTML = `
     <div class="item-row find-row"><span class="label">Find</span><span class="text-content">${find}</span></div>
     <div class="item-row replace-row"><span class="label">Replace</span><span class="text-content">${replace}</span></div>
     <button class="delete" data-index="${index}">
@@ -18,33 +18,33 @@ const createItem = ({ find, replace }, index) => {
       </svg>
     </button>
   `;
-	return div;
+  return div;
 };
 
 // Render list of items
 const render = async () => {
-	const items = await getItems();
-	list.replaceChildren(...items.map(createItem));
+  const items = await getItems();
+  list.replaceChildren(...items.map(createItem));
 };
 
 // Add item
 form.addEventListener("submit", async (e) => {
-	e.preventDefault();
-	const { find = "", replace = "" } = Object.fromEntries(new FormData(e.target));
-	const items = await getItems();
-	if (!find.trim() || items.some((item) => item.find === find)) return;
+  e.preventDefault();
+  const { find = "", replace = "" } = Object.fromEntries(new FormData(e.target));
+  const items = await getItems();
+  if (!find.trim() || items.some((item) => item.find === find)) return;
 
-	await setItems([...items, { find, replace }]);
-	e.target.reset();
-	render();
+  await setItems([...items, { find, replace }]);
+  e.target.reset();
+  render();
 });
 
 // Delete item
 list.addEventListener("click", async ({ target }) => {
-	if (!target.closest(".delete")) return;
-	const items = await getItems();
-	await setItems(items.filter((_, i) => i !== +target.dataset.index));
-	render();
+  if (!target.closest(".delete")) return;
+  const items = await getItems();
+  await setItems(items.filter((_, i) => i !== +target.dataset.index));
+  render();
 });
 
 render();
