@@ -6,13 +6,9 @@ chrome.storage.local.get({ replacements: [] }).then(({ replacements }) => {
     return [new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g"), replace];
   });
 
-  // Recursively process nodes
   const processNode = (node) => {
     if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
-      let text = node.textContent;
-      for (const [regex, replace] of patterns) {
-        text = text.replace(regex, replace);
-      }
+      const text = patterns.reduce((text, [regex, replace]) => text.replace(regex, replace), node.textContent);
       if (text !== node.textContent) node.textContent = text;
     } else if (node.nodeType === Node.ELEMENT_NODE && !node.matches(SKIP)) {
       node.childNodes.forEach(processNode);
@@ -21,10 +17,7 @@ chrome.storage.local.get({ replacements: [] }).then(({ replacements }) => {
 
   processNode(document.body);
 
-  // Observe DOM changes
   new MutationObserver((mutations) =>
-    requestAnimationFrame(() => {
-      mutations.forEach((m) => m.addedNodes.forEach(processNode));
-    }),
+    requestAnimationFrame(() => mutations.flatMap((m) => [...m.addedNodes]).forEach(processNode)),
   ).observe(document.body, { childList: true, subtree: true });
 });

@@ -5,7 +5,6 @@ const list = document.getElementById("list");
 const getItems = () => chrome.storage.local.get(KEY).then((d) => d[KEY] || []);
 const setItems = (items) => chrome.storage.local.set({ [KEY]: items }).catch(console.error);
 
-// Create item div element
 const createItem = ({ find, replace }, index) => {
   const div = document.createElement("div");
   div.className = "item";
@@ -21,13 +20,11 @@ const createItem = ({ find, replace }, index) => {
   return div;
 };
 
-// Render list of items
 const render = async () => {
   const items = await getItems();
   list.replaceChildren(...items.map(createItem));
 };
 
-// Add item
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const { find = "", replace = "" } = Object.fromEntries(new FormData(e.target));
@@ -39,7 +36,6 @@ form.addEventListener("submit", async (e) => {
   render();
 });
 
-// Delete item
 list.addEventListener("click", async ({ target }) => {
   if (!target.closest(".delete")) return;
   const items = await getItems();
