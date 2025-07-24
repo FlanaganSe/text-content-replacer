@@ -2,7 +2,7 @@
   "name": "Text Content Replacer",
   "description": "Automatically replace text on web pages. Add context to IDs, fix typos, or customize your browsing.",
   "homepage_url": "https://github.com/FlanaganSe/text-content-replacer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "manifest_version": 3,
   "minimum_chrome_version": "88",
   "action": {
