@@ -16,7 +16,11 @@ body {
   padding: 12px;
   border-bottom: 1px solid #e2e8f0;
 }
-.header { padding-top: 16px; }
+.header { 
+  padding-top: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
 #list {
   max-height: 320px;
   overflow-y: auto;
