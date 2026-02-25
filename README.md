@@ -6,7 +6,8 @@ A Chrome extension that automatically replaces text on web pages. Perfect for ad
 
 ## Why?
 
-My motivation was specifically for annotating identifiers. When you regularly view dozens of identifiers it can be valuable to add valuable information, such as replacing `1234-5678-9012` with `1234-5678-9012 #aws-dev`.
+My sole motivation for this was to add context to AWS accountIds when you have dozens to manage. E.g. replacing `1234-5678-9012` with `1234-5678-9012 #aws-dev`.
+But surely there's other use cases!
 
 ## Features
 
